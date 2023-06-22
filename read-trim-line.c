@@ -28,7 +28,7 @@ int read_trim_line(int file, char **line, unsigned int line_num)
 			break;
 		if (byte == '#' && index == 0 && !line_is_comment)
 			line_is_comment = 1;
-		if (byte != ' ' && byte != '\n' && !line_is_comment)
+		if ((byte != ' ' || index) && byte != '\n' && !line_is_comment)
 		{
 			ptr[index] = byte;
 			index++;
