@@ -68,8 +68,6 @@ int *set_operand(char *line_buf, char *opcode, unsigned int line_num)
 	{
 		for (; *wtr != '\0'; wtr++)
 		{
-			if (*wtr == '-')
-				sign *= -1;
 			if (isdigit(*wtr))
 			{
 				operand =  sign * atoi(wtr);
