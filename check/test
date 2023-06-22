@@ -5,4 +5,4 @@ push 5
 push 7
 pall
 # end of the monty file
-:x#bye
+:x#bye 2
