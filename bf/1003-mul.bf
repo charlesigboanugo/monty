@@ -64,3 +64,4 @@ A loop to multiply the value of char in cell #0 and cell #1 and store in cell #2
 
 >[-<++++++[>++++++++<-]>.[-]]   	if value in cell #6 not 0 then value is
 					multiple of 10 (outputs  ascii code)
+++++++++++.                             outputs newline charcter
