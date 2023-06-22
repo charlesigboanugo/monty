@@ -17,7 +17,7 @@ void pop_f(stack_t **stack, unsigned int line_num)
 
 	if (ptr == NULL)
 	{
-		print_err("can't pop, stack empty", line_num);
+		print_err("can't pop an empty stack", line_num);
 		func_err = -1;
 		return;
 	}
