@@ -1,0 +1,8 @@
+queue
+push 3
+
+push 5
+push 7
+pall
+# end of the monty file
+#bye

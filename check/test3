@@ -1,0 +1,11 @@
+push 3
+push 5
+# nom;d;ldxp;'
+pall 
+push 7
+pall
+pusho #6#9
+add
+pall
+# end of the monty file
+#bye
