@@ -1,4 +1,5 @@
 #include "monty.h"
+#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -47,7 +48,7 @@ char *get_opcode(char *line_buf, instruction_t *inst, unsigned int line_num)
 		}
 		return (opcode);
 	}
-	print_err("unknown instruction", line_num);
+	fprintf(stderr, "L%u: unknown instruction %s\n", line_num, line_buf);
 	return (NULL);
 }
 
