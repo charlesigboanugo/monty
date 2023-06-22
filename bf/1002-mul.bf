@@ -1,3 +1,6 @@
+[  This script multiplies first two digit provided by user
+   result must be one digit  ]
+
 ,				store the first char from stdin in cell #0
 A loop to subtract 48 from cell #0
 >++++++				set cell #1 to 6 (loop counter) 

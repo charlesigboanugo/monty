@@ -1,3 +1,6 @@
+[    Adds first two digits given by the user
+     result must be a single digit  ]
+
 ,			store the first char from stdin in cell #0
 >,			store the second char from stdin in cell #1
 
