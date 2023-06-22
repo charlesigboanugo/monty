@@ -48,13 +48,13 @@ char *get_opcode(char *line_buf, instruction_t *inst, unsigned int line_num)
 		}
 		return (opcode);
 	}
-	fprintf(stderr, "L%u: unknown instruction ", line_num);
+	fprintf(stdout, "L%u: unknown instruction ", line_num);
 	while (*line_buf != ' ' && *line_buf != '\0')
 	{
-		fprintf(stderr, "%c", *line_buf);
+		fprintf(stdout, "%c", *line_buf);
 		line_buf++;
 	}
-	fprintf(stderr, "\n");
+	fprintf(stdout, "\n");
 	return (NULL);
 }
 
