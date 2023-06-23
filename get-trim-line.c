@@ -3,7 +3,17 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-int read_trim_line(int file, char **line, unsigned int line_num)
+/**
+* get_trim_line - reads a single line from the monty file and removes all
+* trailing spaces at the beginning of the line
+* @file: file decriptor to the opened monty file
+* @line: pointer to the address where the read line would be stored
+* @line_num: line number of the line to be read from the monty file
+*
+* Return: 0 if line is empty; EOF if no more lines in file else size of
+* the line excluding any beginning space(s) and the newline character
+*/
+int get_trim_line(int file, char **line, unsigned int line_num)
 {
 	char *ptr, byte = ' ';
 	ssize_t bytes_read;
@@ -32,7 +42,7 @@ int read_trim_line(int file, char **line, unsigned int line_num)
 		{
 			ptr[index] = byte;
 			index++;
-		}	
+		}
 	}
 	if (index == 0)
 	{

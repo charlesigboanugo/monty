@@ -3,16 +3,16 @@
 #include <stdlib.h>
 
 /**
-* pushfunc -
-* @stack:
-* @line_num:
+* push_f - pushes an element onto the stack
+* @stack: pointer to the top of the stack
+* @line_num: line of the instruction executed
 *
 * Return: void
 */
 void push_f(stack_t **stack, __attribute__((unused)) unsigned int line_num)
 {
 	stack_t *ptr = NULL, *tmp = NULL;
-	
+
 	ptr = malloc(sizeof(*ptr));
 	if (ptr == NULL)
 	{
@@ -42,5 +42,5 @@ void push_f(stack_t **stack, __attribute__((unused)) unsigned int line_num)
 		else
 			*stack = ptr;
 		ptr->prev = tmp;
-	}	
+	}
 }

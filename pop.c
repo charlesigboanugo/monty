@@ -2,11 +2,11 @@
 #include <stdlib.h>
 
 /**
+* pop_f - removes the top element of the stack.
+* @stack: pointer to the top of the stack
+* @line_num: line of the instruction executed
 *
-*
-*
-*
-*
+* Return: void
 */
 void pop_f(stack_t **stack, unsigned int line_num)
 {

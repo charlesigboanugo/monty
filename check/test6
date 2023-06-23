@@ -1,0 +1,7 @@
+push 3
+    
+push 5
+push 7
+pall k
+# end of the monty file
+pallk

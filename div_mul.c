@@ -1,11 +1,12 @@
 #include "monty.h"
 
 /**
+* div_f - divides the second top element of the stack by
+* the top element of the stack.
+* @stack: pointer to the top of the stack
+* @line_num: line of the instruction executed
 *
-*
-*
-*
-*
+* Return: void
 */
 void div_f(stack_t **stack, unsigned int line_num)
 {
@@ -26,11 +27,12 @@ void div_f(stack_t **stack, unsigned int line_num)
 }
 
 /**
+* mul_f - multiplies the second top element of the stack with
+* the top element of the stack.
+* @stack: pointer to the top of the stack
+* @line_num: line of the instruction executed
 *
-*
-*
-*
-*
+* Return: void
 */
 void mul_f(stack_t **stack, unsigned int line_num)
 {

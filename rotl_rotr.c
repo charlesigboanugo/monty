@@ -2,16 +2,16 @@
 #include <stdlib.h>
 
 /**
+* rotl_f - rotates the stack to the top
+* @stack: pointer to the top of the stack
+* @line_num: line of the instruction executed
 *
-*
-*
-*
-*
+* Return: void
 */
 void rotl_f(stack_t **stack, __attribute__((unused)) unsigned int line_num)
 {
 	stack_t *ptr = *stack;
-	
+
 	if (ptr != NULL && ptr->next != NULL)
 	{
 		while (ptr->next->next != NULL)
@@ -25,16 +25,16 @@ void rotl_f(stack_t **stack, __attribute__((unused)) unsigned int line_num)
 }
 
 /**
+* rotr_f - rotates the stack to the bottom
+* @stack: pointer to the top of the stack
+* @line_num: line of the instruction executed
 *
-*
-*
-*
-*
+* Return: void
 */
 void rotr_f(stack_t **stack, __attribute__((unused)) unsigned int line_num)
 {
 	stack_t *ptr = *stack;
-	
+
 	if (ptr != NULL && ptr->next != NULL)
 	{
 		while (ptr->next->next != NULL)

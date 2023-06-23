@@ -3,11 +3,11 @@
 #include <stdlib.h>
 
 /**
+* pstr_f - prints the string starting at the top of the stack.
+* @stack: pointer to the top of the stack
+* @line_num: line of the instruction executed
 *
-*
-*
-*
-*
+* Return: void
 */
 void pstr_f(stack_t **stack, __attribute__((unused)) unsigned int line_num)
 {
@@ -17,17 +17,17 @@ void pstr_f(stack_t **stack, __attribute__((unused)) unsigned int line_num)
 	{
 		if (ptr->n <= 0 || ptr->n > 127)
 			break;
-		printf("%c", (char) ptr->n);		
+		printf("%c", (char) ptr->n);
 	}
 	printf("\n");
 }
 
 /**
+* pchar_f - prints the char at the top of the stack.
+* @stack: pointer to the top of the stack
+* @line_num: line of the instruction executed
 *
-*
-*
-*
-*
+* Return: void
 */
 void pchar_f(stack_t **stack, unsigned int line_num)
 {
@@ -43,5 +43,5 @@ void pchar_f(stack_t **stack, unsigned int line_num)
 		func_err = -1;
 		return;
 	}
-	printf("%c\n", (char) (*stack)->n);		
+	printf("%c\n", (char) (*stack)->n);
 }

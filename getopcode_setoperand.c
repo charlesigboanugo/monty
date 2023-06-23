@@ -4,11 +4,38 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-/*
-* opcode_req_arg -
-* @opcode:
+/**
+ * is_number - checks to see if input is a number
+ * @s: input to check for numberhood
+ * Return: 1 if it is a number, 0 if not
+ */
+
+int is_number(char *s)
+{
+	int i;
+
+	i = 0;
+	if (s[i] == '-')
+		i++;
+	while (*(s + i) != '\0')
+	{
+		if (*(s + i) >= '0' && *(s + i) <= '9')
+		{
+			i++;
+		}
+		else
+		{
+			return (0);
+		}
+	}
+	return (1);
+}
+
+/**
+* opcode_req_arg - checks if an instruction (opcode) requires an operand
+* @opcode: the instruction
 *
-* Return:
+* Return: 1 if it requires otherwise 0
 */
 int opcode_req_arg(char *opcode)
 {
@@ -18,23 +45,24 @@ int opcode_req_arg(char *opcode)
 }
 
 /**
+* get_opcode - finds an opcode from a line read from a monty file
+* @line_buf: buffer where the line is stored
+* @inst: contains all posssible instructions (opcode)
+* @line_num: the line number of the monty file
 *
-*
-*
-*
-*
+* Return: the opcode if valid else NULL
 */
 char *get_opcode(char *line_buf, instruction_t *inst, unsigned int line_num)
 {
 	unsigned int i;
-	char *opcode = NULL, tmp;
+	char *opcode = NULL, *nxchar;
 
-	for(i = 0; i < 17; i++)
+	for (i = 0; i < 17; i++)
 	{
 		if (strstr(line_buf, inst[i].opcode) == line_buf)
 		{
-			tmp = *(line_buf + strlen(inst[i].opcode));
-			if (tmp == ' ' || tmp == '\0')
+			nxchar = line_buf + strlen(inst[i].opcode);
+			if (*nxchar == ' ' || *nxchar == '\0')
 			{
 				opcode = inst[i].opcode;
 				break;
@@ -45,7 +73,7 @@ char *get_opcode(char *line_buf, instruction_t *inst, unsigned int line_num)
 	{
 		if (opcode_req_arg(opcode))
 		{
-			if (set_operand(line_buf, opcode, line_num) == NULL)
+			if (set_operand(nxchar, line_num) == NULL)
 				return (NULL);
 		}
 		return (opcode);
@@ -61,29 +89,20 @@ char *get_opcode(char *line_buf, instruction_t *inst, unsigned int line_num)
 }
 
 /**
+* set_operand - gets and sets the operand of an instruction needing one
+* @nxchar: pointer to the next character after the instruction
+* @line_num: the line number of the monty file
 *
-*
-*
-*
-*
+* Return: address where the operand is stored else NULL
 */
-int *set_operand(char *line_buf, char *opcode, unsigned int line_num)
+int *set_operand(char *nxchar, unsigned int line_num)
 {
-	int sign = 1;
-	char *wtr = NULL;
-
-	wtr = line_buf + strlen(opcode);
-	if (*wtr == ' ')
+	if (*nxchar == ' ')
 	{
-		for (; *wtr != '\0'; wtr++)
+		if (is_number(++nxchar))
 		{
-			if (*wtr == '-')
-				sign *= -1;
-			if (isdigit(*wtr))
-			{
-				operand =  sign * atoi(wtr);
-				return (&operand);
-			}
+			operand = atoi(nxchar);
+			return (&operand);
 		}
 	}
 	print_err("usage: push integer", line_num);
