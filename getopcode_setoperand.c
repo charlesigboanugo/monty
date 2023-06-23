@@ -99,7 +99,9 @@ int *set_operand(char *nxchar, unsigned int line_num)
 {
 	if (*nxchar == ' ')
 	{
-		if (is_number(++nxchar))
+		while (*nxchar == ' ')
+			nxchar++;
+		if (is_number(nxchar))
 		{
 			operand = atoi(nxchar);
 			return (&operand);
