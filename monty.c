@@ -1,10 +1,6 @@
 #include "monty.h"
-#include "extern.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <sys/types.h>
-#include <sys/stat.h>
 #include <fcntl.h>
 #include <unistd.h>
 
@@ -50,6 +46,7 @@ int main(int ac, char **av)
 	int file, byte_read;
 	unsigned int line_num;
 	char *opcode = NULL, *line = NULL;
+	format = 0;
 
 	if (ac != 2)
 		print_err_exit("USAGE:", "monty file");
@@ -61,16 +58,16 @@ int main(int ac, char **av)
 		free(line);
 		byte_read = read_trim_line(file, &line, line_num);
 		if (byte_read == -2)
-			clean_err_exit(file, topstack);
+			clean_err_exit(line, file, topstack);
 		if (byte_read == EOF)
 			break;
 		if (byte_read == 0)
 			continue;
 		opcode = get_opcode(line, inst, line_num);
 		if (opcode == NULL)
-			clean_err_exit(file, topstack);
+			clean_err_exit(line, file, topstack);
 		if (exec_instr(inst, &topstack, opcode, line_num) == -1)
-			clean_err_exit(file, topstack);
+			clean_err_exit(line, file, topstack);
 	}
 	free(line);
 	free_stk(topstack);

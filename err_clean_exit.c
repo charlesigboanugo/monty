@@ -22,8 +22,9 @@ void print_err(char *errmsg, unsigned int line_num)
 *
 *
 */
-void clean_err_exit(int file, stack_t *stack)
+void clean_err_exit(char *line, int file, stack_t *stack)
 {
+	free(line);
 	free_stk(stack);
 	if (close(file) == -1)
 		fprintf(stderr, "An error occured during closing of file\n");

@@ -2,11 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-extern int format;
-extern int operand;
-extern int func_err;
-extern unsigned int size;
-
 /**
 * pushfunc -
 * @stack:
@@ -48,5 +43,4 @@ void push_f(stack_t **stack, __attribute__((unused)) unsigned int line_num)
 			*stack = ptr;
 		ptr->prev = tmp;
 	}	
-	size++;
 }

@@ -4,8 +4,6 @@
 #include <stdlib.h>
 #include <ctype.h>
 
-extern int operand;
-
 /*
 * opcode_req_arg -
 * @opcode:
@@ -29,14 +27,18 @@ int opcode_req_arg(char *opcode)
 char *get_opcode(char *line_buf, instruction_t *inst, unsigned int line_num)
 {
 	unsigned int i;
-	char *opcode = NULL;
+	char *opcode = NULL, tmp;
 
 	for(i = 0; i < 17; i++)
 	{
 		if (strstr(line_buf, inst[i].opcode) == line_buf)
 		{
-			opcode = inst[i].opcode;
-			break;
+			tmp = *(line_buf + strlen(inst[i].opcode));
+			if (tmp == ' ' || tmp == '\0')
+			{
+				opcode = inst[i].opcode;
+				break;
+			}
 		}
 	}
 	if (opcode)
@@ -48,13 +50,13 @@ char *get_opcode(char *line_buf, instruction_t *inst, unsigned int line_num)
 		}
 		return (opcode);
 	}
-	fprintf(stdout, "L%u: unknown instruction ", line_num);
+	fprintf(stderr, "L%u: unknown instruction ", line_num);
 	while (*line_buf != ' ' && *line_buf != '\0')
 	{
-		fprintf(stdout, "%c", *line_buf);
+		fprintf(stderr, "%c", *line_buf);
 		line_buf++;
 	}
-	fprintf(stdout, "\n");
+	fprintf(stderr, "\n");
 	return (NULL);
 }
 

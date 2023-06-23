@@ -1,9 +1,6 @@
 #include "monty.h"
 #include <stdlib.h>
 
-extern int func_err;
-extern int size;
-
 /**
 *
 *
@@ -23,5 +20,4 @@ void pop_f(stack_t **stack, unsigned int line_num)
 	}
 	*stack = (*stack)->next;
 	free(ptr);
-	size--;
 }

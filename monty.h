@@ -39,7 +39,7 @@ void sub_f(stack_t **stack, unsigned int line_num);
 void div_f(stack_t **stack, unsigned int line_num);
 void mul_f(stack_t **stack, unsigned int line_num);
 void print_err(char *errmsg, unsigned int line_num);
-void clean_err_exit(int file, stack_t *stack);
+void clean_err_exit(char* line, int file, stack_t *stack);
 int exec_instr(instruction_t *, stack_t **, char *, unsigned int);
 char *get_opcode(char *line_buf, instruction_t *inst, unsigned int line_num);
 int *set_operand(char *line_buf, char *opcode, unsigned int line_num);
@@ -59,5 +59,12 @@ void push_f(stack_t **stack, unsigned int line_num);
 int read_trim_line(int file, char **line, unsigned int line_num);
 void print_err_exit(char *errmsg1, char *errmsg2);
 void close_file(int fd);
+
+extern int operand;
+int operand;
+extern int func_err;
+int func_err;
+extern int format;
+int format;
 
 #endif

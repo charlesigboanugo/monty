@@ -1,8 +1,5 @@
 #include "monty.h"
 
-extern int func_err;
-extern unsigned int size;
-
 /**
 *
 *
@@ -12,7 +9,7 @@ extern unsigned int size;
 */
 void add_f(stack_t **stack, unsigned int line_num)
 {
-	if (size < 2)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		print_err("can't add, stack too short", line_num);
 		func_err = -1;
@@ -44,7 +41,7 @@ void nop_f(stack_t **stack, unsigned int line_num)
 */
 void sub_f(stack_t **stack, unsigned int line_num)
 {
-	if (size < 2)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		print_err("can't sub, stack too short", line_num);
 		func_err = -1;

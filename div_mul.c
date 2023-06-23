@@ -1,8 +1,5 @@
 #include "monty.h"
 
-extern int func_err;
-extern int size;
-
 /**
 *
 *
@@ -12,7 +9,7 @@ extern int size;
 */
 void div_f(stack_t **stack, unsigned int line_num)
 {
-	if (size < 2)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		print_err("can't div, stack too short", line_num);
 		func_err = -1;
@@ -37,7 +34,7 @@ void div_f(stack_t **stack, unsigned int line_num)
 */
 void mul_f(stack_t **stack, unsigned int line_num)
 {
-	if (size < 2)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		print_err("can't mul, stack too short", line_num);
 		func_err = -1;

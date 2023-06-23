@@ -1,8 +1,6 @@
 #include "monty.h"
 #include <stdlib.h>
 
-extern int format;
-
 /**
 *
 *

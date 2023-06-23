@@ -1,8 +1,5 @@
 #include "monty.h"
 
-extern int func_err;
-extern int size;
-
 /**
 *
 *
@@ -12,7 +9,7 @@ extern int size;
 */
 void mod_f(stack_t **stack, unsigned int line_num)
 {
-	if (size < 2)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		print_err("can't mod, stack too short", line_num);
 		func_err = -1;
@@ -39,7 +36,7 @@ void swap_f(stack_t **stack, unsigned int line_num)
 {
 	int n;
 
-	if (size < 2)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		print_err("can't swap, stack too short", line_num);
 		func_err = -1;
