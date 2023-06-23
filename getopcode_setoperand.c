@@ -17,7 +17,9 @@ int is_number(char *s)
 	i = 0;
 	if (s[i] == '-')
 		i++;
-	while (*(s + i) != '\0')
+	if (s[i] == '\0' || s[i] == ' ')
+		return (0);
+	while (*(s + i) != '\0' && *(s + i) != ' ')
 	{
 		if (*(s + i) >= '0' && *(s + i) <= '9')
 		{
